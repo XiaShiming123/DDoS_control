@@ -3,6 +3,7 @@ import tensorflow as tf
 import numpy as np
 import random
 
+#fig 10
 Person1=np.load("person_multi_r_test_fair_0.85_800.npy")
 Person2=np.load("person_multi2_r_test_fair_0.85_800.npy")
 Linear=np.load("liner_rs_test_multi0_800_0.85.npy")
@@ -40,6 +41,6 @@ plt.legend(["SIRT","FRT","Linear","MART","CRLRT","CRLRT_LC"])
 plt.xlabel("t")
 plt.ylabel("reward")
 plt.ylim([0.5,1.1])
-plt.savefig("reward-comparison-multi.png")
+plt.savefig("multi/reward-comparison-multi.png")
 plt.show()
 

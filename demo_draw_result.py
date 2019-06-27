@@ -15,7 +15,7 @@ plt.legend(["800_0.85","2000_0.7",  "q_size"])
 plt.xlabel("t")
 plt.ylabel("reward")
 plt.ylim([0.3,1.1])
-plt.savefig("person_single1.png")
+plt.savefig("single/person_single1.png")
 
 
 person_single2_r_test_7=np.load("person_single2_r_test_fair_0.7_2000.npy")
@@ -32,7 +32,7 @@ plt.legend(["800_0.85","2000_0.7", "q_size"])
 plt.xlabel("t")
 plt.ylabel("reward")
 plt.ylim([0.3,1.1])
-plt.savefig("person_single2.png")
+plt.savefig("single/person_single2.png")
 
 
 ddpg_single_rs1=np.load("ddpg_rs_test_single999_0.7_2000_0.001_0.0001.npy")
@@ -49,7 +49,7 @@ plt.legend(["800_0.85","2000_0.7", "q_size"])
 plt.xlabel("t")
 plt.ylabel("reward")
 plt.ylim([0.3,1.1])
-plt.savefig("ddpg___.png")
+plt.savefig("single/ddpg___.png")
 
 
 ddpg_single_rs1=np.load("liner_rs_test_0_2000_0.7.npy")
@@ -63,7 +63,7 @@ plt.legend(["2000_0.7","800_0.85","2000_0.7", "q_size"])
 plt.xlabel("t")
 plt.ylabel("reward")
 plt.ylim([0.3,1.1])
-plt.savefig("linear.png")
+plt.savefig("single/linear.png")
 
 # plt.figure(1)
 # plt.plot(r_test_fair)

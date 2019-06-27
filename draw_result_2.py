@@ -41,30 +41,31 @@
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import numpy as np
+#Fig 7 (a)
+r_test_ddpg_LC=np.load("ddpg_single_train_900_0.85_800_0.001_0.0001.npy")
+r_test_ddpg_LC2=np.load("ddpg_single_train_300_0.85_800_0.001_0.0001.npy")
+show_length=1000
+t=[]
+train_ddpg_show=[]
+train_ddpg_show2=[]
+for i in range(int(len(r_test_ddpg_LC)/2/show_length)):
+    t.append(int(i*show_length+show_length/2))
+    train_ddpg_show.append(np.mean(r_test_ddpg_LC[i*show_length:(i+1)*show_length]))
+    train_ddpg_show2.append(np.mean(r_test_ddpg_LC2[i * show_length:(i + 1) * show_length]))
+plt.figure(0)
 
-# r_test_ddpg_LC=np.load("ddpg_single_train_900_0.85_800_0.001_0.0001.npy")
-# r_test_ddpg_LC2=np.load("ddpg_single_train_300_0.85_800_0.001_0.0001.npy")
-# show_length=1000
-# t=[]
-# train_ddpg_show=[]
-# train_ddpg_show2=[]
-# for i in range(int(len(r_test_ddpg_LC)/2/show_length)):
-#     t.append(int(i*show_length+show_length/2))
-#     train_ddpg_show.append(np.mean(r_test_ddpg_LC[i*show_length:(i+1)*show_length]))
-#     train_ddpg_show2.append(np.mean(r_test_ddpg_LC2[i * show_length:(i + 1) * show_length]))
-# plt.figure(0)
-#
-# plt.plot(t,train_ddpg_show2, 'b')
-# plt.plot(t,train_ddpg_show,'k')
-# plt.title("CRLRT_800_0.85")#:ave_reward="+str(np.round(np.mean(r_test_nofair),3)))
-# plt.legend(["curriculum learning","directly learning"])
-# #plt.title("no_fair:ave_reward="+str(np.round(np.mean(r_test_nofair),3)))
-# plt.xlabel("t")
-# plt.ylabel("reward")
-# plt.ylim([0.3,1.1])
-# plt.savefig("curriculum-directly_train_single.png")
-# plt.show()
+plt.plot(t,train_ddpg_show2, 'b')
+plt.plot(t,train_ddpg_show,'k')
+plt.title("CRLRT_800_0.85")#:ave_reward="+str(np.round(np.mean(r_test_nofair),3)))
+plt.legend(["curriculum learning","directly learning"])
+#plt.title("no_fair:ave_reward="+str(np.round(np.mean(r_test_nofair),3)))
+plt.xlabel("t")
+plt.ylabel("reward")
+plt.ylim([0.3,1.1])
+plt.savefig("curriculum-directly_train_single.png")
+plt.show()
 
+#Fig 7 (b) the reward of curriculum and directly
 r_test_ddpg_LC=np.load("ddpg_rs_test_single_dire_900_0.85_800_0.001_0.0001.npy")
 r_test_ddpg_LC2=np.load("ddpg_rs_test_single300_0.85_800_0.001_0.0001.npy")
 show_length=5
@@ -85,7 +86,7 @@ plt.legend(["curriculum learning","directly learning"])
 plt.xlabel("t")
 plt.ylabel("reward")
 plt.ylim([0.3,1.1])
-plt.savefig("curriculum-directly.png")
+plt.savefig("single/curriculum-directly.png")
 plt.show()
 
 # plt.plot(t,train_ddpg_show2,'b')
